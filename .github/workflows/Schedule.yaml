@@ -1,4 +1,4 @@
-name: Daily Scheduled Build
+name: Daily_Scheduled_Build
 
 on:
   schedule:
