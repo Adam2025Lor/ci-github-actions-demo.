@@ -1,4 +1,4 @@
-name: Python CI Test
+name: Python CI matrix Test
 
 on:
   push:
