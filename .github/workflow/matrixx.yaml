@@ -1,4 +1,4 @@
-name: Python matrixx Test
+name: Python matrix Test
 
 on:
   push:
