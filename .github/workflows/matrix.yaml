@@ -1,27 +1,30 @@
-name: Matrix Build
+name: Python matrix Test
+
 on:
   push:
     branches:
-      - main
-      - master
+      - main  
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  
+
     strategy:
       matrix:
-        python: [3.9, 3.12, 3.11]
-        os: [ubuntu-latest, windows-latest]
+        python-version: [3.7, 3.8, 3.9, 3.10]  
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v3
+      - name: Check out code
+        uses: actions/checkout@v3  
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4  
         with:
-          python-version: ${{ matrix.python }}
+          python-version: ${{ matrix.python-version }}
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+
       - name: Run tests
-        run: pytest
+        run: |
+          python -m unittest discover -s . -p "test_*.py"  # Run all test files that start with 'test_'
