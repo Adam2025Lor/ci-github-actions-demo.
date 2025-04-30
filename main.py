@@ -3,6 +3,6 @@ def my_function(food):
 
 
 # Example usage
-fruits = ["apple", "bananaa", "cherrry"]
+fruits = ["apple", "bananaa", "chery"]
 result = my_function(fruits)
 print(result)  # Optional, for seeing the output when you run the script
